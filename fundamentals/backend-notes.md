@@ -51,6 +51,24 @@ GEt route?
 POST route?
 - Sensitive data like email, password,etc will not be visible on the URL
 
+Dynamic routing?
+- To make any route dynamic you can use ':' at the place where you want to make it dynamic, and to access their values use req.params.username.
+- Suppose you have routes like,
+  /profile/harsh
+  /profile/harshita
+  /profile/harshvardhan
+  /profile/hardik
+  
+- If you write seperate routes like this for each user,
+     app.get('/profile/Harsh', function(req,res){
+        res.send("Hello from Harsh");
+     })
+
+- You can use dynamic routing to dynamically route different usernames,
+    app.get("/profile/:username", function(req,res){
+        res.send(`Hello from ${req.params.username}`);
+    })
+
 
 Creating a server?
 - create a response using the given code in npm package and listen it on port 3000
